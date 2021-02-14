@@ -1,0 +1,51 @@
+// include files
+#include <iostream>		// note that .h is omitted
+#include <iomanip>		// note that .h is omitted
+#include <fstream>		// note that .h is omitted
+#include <cmath>
+using namespace std;		// we need this when .h is omitted
+
+//*********************************************************************//
+float up(int n){
+    float val = 0;
+    for (int i = 1; i <= n; i++){
+        val += 1./i;
+    }
+  return val;
+}
+
+float down(int N){
+    float val = 0;
+    for (int i = N; i >= 1; i--){
+        val += 1./i;
+    }
+  return val;
+}
+
+float diff(int n){
+  return ((abs(up(n) - down(n)))/(0.5*(abs(up(n)) + abs(down(n)))));
+}
+
+int
+main ()
+{
+
+  // open the plot file stream
+  ofstream fplot ("Up_down.dat"); 
+  fplot << "#     N    |UP|  |DOWN|  |DIFFERENCE|" << endl;
+
+  
+  long limit = pow(10,8);
+  for(int i = 100; i <= limit; i *= 10){
+    
+    fplot << "  " << scientific << setprecision(6) << i <<
+ 	"   " << up(i)  << "  " << down(i)  << "        " << diff(i) << endl;
+  }
+
+  fplot.close();
+
+  
+
+  return (0);
+}
+
