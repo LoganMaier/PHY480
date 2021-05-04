@@ -1,0 +1,2 @@
+grade: check
+* sum up/down looks ok, but missing Bessel analysis/plots

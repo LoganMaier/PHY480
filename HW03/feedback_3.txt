@@ -1,0 +1,3 @@
+grade: check +
+(Note: the overall sign of the GSL eigenvectors is arbitrary. This is why some of your wf's look "inverted". 
+You can simply chose a convention, e.g, requiring u(r) > 0 at small r, to keep them all the same sign.)
